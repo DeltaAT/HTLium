@@ -18,7 +18,7 @@
     subject: "ITSI",
     school: "HTBLuVA Salzburg",
     department: "Informationstechnologie: Data Science und Artificial Intelligence",
-    teachers: ("Frau Mag. Mustermann", "Herr Mag. Muster")
+    teachers: ("Frau Mag. Mustermann", "Herr Mag. Muster"),
 ) = {
     v(2cm)
 
@@ -100,94 +100,122 @@
     pagebreak()
 }
 
-
-#let template(body,
-    author: "Elias Pöschl",
-    class-long: "ITSI Protokoll",
-    logo-url: "logo.png",
-    school-year: "2025/26",
-
-    title: "Protokoll",
-    subtitle: "zu Versuch XY",
-    task-title: "Aufgabenstellung",
-    task-content: "Das ist die Aufgabenstellung, die hier beschrieben wird.",
-    class: "3AHITS",
-    date: datetime.today().display("[Day padding:None].[month].[year]"),
-    subject: "ITSI",
-    school: "HTBLuVA Salzburg",
-    department: "Informationstechnologie: Data Science und Artificial Intelligence",
-    teachers: ("Frau Mag. Mustermann", "Herr Mag. Muster")
+#let template(
+  body,
+  author: "Elias Pöschl",
+  class-long: "ITSI Protokoll",
+  logo-url: "logo.png",
+  school-year: "2025/26",
+  title: "Protokoll",
+  subtitle: "zu Versuch XY",
+  task-title: "Aufgabenstellung",
+  task-content: "Das ist die Aufgabenstellung, die hier beschrieben wird.",
+  class: "3AHITS",
+  date: datetime.today().display("[Day padding:None].[month].[year]"),
+  subject: "ITSI",
+  school: "HTBLuVA Salzburg",
+  department: "Informationstechnologie: Data Science und Artificial Intelligence",
+  teachers: ("Frau Mag. Mustermann", "Herr Mag. Muster"),
+  do_lof: true,
+  do_lot: true,
+  do_bib: true,
+  bib-src: "refs.bib"
 ) = {
-    let htlorange = rgb(255, 108, 76)
-
-    set heading(
-        numbering: "1.",
+  let htlorange = rgb(255, 108, 76)
+  
+  set heading(
+    numbering: "1.",
+  )
+  show heading: set text(fill: htlorange)
+  
+  set page(
+    paper: "a4",
+    margin: (top: 2.95cm, bottom: 2.54cm, left: 1.57cm, right: 1.57cm),
+    numbering: "1",
+    header: {
+      grid(
+        columns: 3 * (1fr,),
+        rows: (7fr, 1fr),
+        [
+          #author
+        ],
+        align(center)[
+          #class-long
+        ],
+        align(right)[
+          #image(logo-url, width: 3cm)
+        ],
+        
+        [
+          #line(length: 300%, stroke: 0.5pt)
+        ],
+      )
+    },
+    footer: context {
+      grid(
+        columns: 2 * (1fr,),
+        [
+          #school-year
+        ],
+        align(right)[
+          #counter(page).display("1")
+        ],
+      )
+    },
+  )
+  
+  set document(
+    title: title,
+    author: author,
+  )
+  
+  set text(
+    font: "Arial",
+    size: 12pt,
+    lang: "de",
+  )
+  
+  titlepage(
+    title: title,
+    subtitle: subtitle,
+    task-title: task-title,
+    task-content: task-content,
+    author: author,
+    class: class,
+    school-year: school-year,
+    date: date,
+    logo-url: logo-url,
+    subject: subject,
+    school: school,
+    department: department,
+    teachers: teachers,
+  )
+  
+  outline()
+  pagebreak()
+  
+  if do_lof {
+    outline(
+      title: [Abbildungsverzeichnis],
+      target: figure.where(kind: image),
     )
-    show heading: set text(fill: htlorange)
-
-    set page(
-        paper: "a4",
-        margin: (top: 2.95cm, bottom: 2.54cm, left: 1.57cm, right: 1.57cm),
-        numbering: "1",
-        header: {
-            grid(
-                columns: 3*(1fr,),
-                rows: (7fr, 1fr),
-                [
-                    #author
-                ],
-                align(center)[
-                    #class-long
-                ],
-                align(right)[
-                    #image(logo-url, width: 3cm)
-                ],
-                [
-                    #line(length: 300%, stroke: 0.5pt)
-                ]
-            )
-        },
-        footer: context {
-            grid(
-                columns: 2*(1fr,),
-                [
-                    #school-year
-                ],
-                align(right)[
-                    #counter(page).display("1")
-                ]
-            )
-        }
+  }
+  if do_lot {
+    outline(
+      title: [Tabellenverzeichnis],
+      target: figure.where(kind: table),
     )
-
-    set document(
-        title: title,
-        author: author
-    )
-
-    set text(
-        font: "Arial",
-        size: 12pt,
-        lang: "de"
-    )
-
-    titlepage(
-        title: title,
-        subtitle: subtitle,
-        task-title: task-title,
-        task-content: task-content,
-        author: author,
-        class: class,
-        school-year: school-year,
-        date: date,
-        logo-url: logo-url,
-        subject: subject,
-        school: school,
-        department: department,
-        teachers: teachers
-    )
-
-    body
+  }
+  if do_lot or do_lof {
+    pagebreak()
+  }
+  
+  body
+  
+  if do_bib {
+    bibliography(bib-src, style: "ieee",
+    title: [Literaturverzeichnis])
+  }
 }
 
 

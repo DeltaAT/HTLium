@@ -6,8 +6,53 @@
     logo-url: "logo.png",
     date: datetime.today(offset: 2)
     )
-= Test
+
+= Normaler Text
+#lorem(400)
 
 #datetime.today(offset: 1).display("[Day padding:None].[month].[year]")
 
-#lorem(700)
+== Text mit Referenzen
+
+Das ist ein Zitat aus einem Buch @harry-potter.
+
+#pagebreak()
+
+= Abbildungen
+
+#figure(
+    image("logo.png", width: 5cm),
+    caption: "Das ist eine Abbildung."
+)
+
+#figure(
+    table(
+        columns: 3*(auto,),
+        rows: 2*(auto,),
+        [
+            *Name:*
+        ],
+        [
+            *Alter:*
+        ],
+        [
+            *Beruf:*
+        ],
+        [
+            Elias
+        ],
+        [
+            16
+        ],
+        [
+            Schüler
+        ]
+    ),
+    caption: "Das ist eine Tabelle"
+)
+
+
+#pagebreak()
+
+#include "src/text1.typ"
+
