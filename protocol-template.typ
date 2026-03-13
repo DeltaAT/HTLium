@@ -195,12 +195,18 @@
   pagebreak()
   
   if do_lof {
+    show outline.entry: it => {
+      it.indented(none, it.prefix() + ": " + it.inner())
+    }
     outline(
       title: [Abbildungsverzeichnis],
       target: figure.where(kind: image),
     )
   }
   if do_lot {
+    show outline.entry: it => {
+      it.indented(none, it.prefix() + ": " + it.inner())
+    }
     outline(
       title: [Tabellenverzeichnis],
       target: figure.where(kind: table),
