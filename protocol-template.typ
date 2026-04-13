@@ -93,7 +93,7 @@
             *Lehrer:*
         ],
         [
-            #teachers.join(", ")
+            #teachers.join(",\n")
         ]
     )
 
