@@ -41,6 +41,7 @@ Sonst ist hier die Dokumentation: <https://typst.app/docs/>
    16. `do_lot`: Bool ob man ein Tabellenverzeichnis will
    17. `do_bib`: Bool ob man ein Literaturverzeichnis will
    18. `bib-src`: pfad zur Literaturliste
+   19. `fancy_design`: Bool ob man ein fancy Design mit Farbe will
 
 Alle Werte haben Standardwerte Also muss nicht alles davon gesetzt werden.
 
