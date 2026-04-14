@@ -1,4 +1,4 @@
-#import "protocol-template.typ": template
+#import "@local/htl-protocol:1.1.1": template
 
 #show: body => template(body)
 
@@ -16,7 +16,7 @@ Das ist ein Zitat aus einem Buch @harry-potter.
 = Abbildungen
 
 #figure(
-    image("logo.png", width: 5cm),
+    image("./logo.png", width: 5cm),
     caption: "Das ist eine Abbildung."
 )
 

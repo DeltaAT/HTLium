@@ -1,16 +1,10 @@
-# Typst Protocol Template
+# HTL Protocol Template
 
 Dieses Repo enthält eine Typst-Vorlage für Protokolle (z. B. ITSI).
 
-## Dateien
-
-- `protocol-template.typ`: Die eigentliche Vorlage (exportiert `protocol(...)`).
-- `main.typ`: Beispiel, wie man die Vorlage nutzt.
-- `refs.bib`: File für die Literaturnachweise
-
 ## Typst verwenden
 
-Siehe im main.typ file wie es beispielsweise ausschauen könnte.
+Siehe in ``examples/main.typ`` file wie es beispielsweise ausschauen könnte.
 
 Sonst ist hier die Dokumentation: <https://typst.app/docs/>
 
@@ -20,9 +14,23 @@ Sonst ist hier die Dokumentation: <https://typst.app/docs/>
 
 ## Verwenden
 
-1. Logo-Datei ins Projekt legen (z.B. `logo.png`) oder `logo_path` entsprechend setzen.
-2. Inhalte schreiben oder über `#include "src/..."` einbinden.
-3. Folgende Parameter für das Template:
+### Locales Package
+
+Kopiere alle Daten zum Order `~\AppData\Local\typst\packages\{namespace}\{package}\{version}`.
+Also zum Beispiel zu `~\AppData\Local\typst\packages\local\htl-protocol\1.1.1\`.
+Dann wird es in deinem File so eingebunden:
+
+```typst
+#import "@local/htl-protocol:1.1.1": template
+
+#show: body => template(body)
+```
+
+Danach kann normal weitergeschrieben werden
+
+> Global Package kommt bald
+
+1. Folgende Parameter für das Template:
    1. `author`: Full Name
    2. `class-long`: Header Mitte
    3. `logo-url`: path zum logo
@@ -50,27 +58,3 @@ Alle Werte haben Standardwerte Also muss nicht alles davon gesetzt werden.
 ```powershell
 typst compile main.typ main.pdf
 ```
-
-## Doku for adding local Package
-
-From <https://github.com/typst/packages>
-
-Want to install a package locally on your system without publishing it or
-experiment with it before publishing? You can store packages in
-`{data-dir}/typst/packages/{namespace}/{name}/{version}` to make them available
-locally on your system. Here, `{data-dir}` is
-
-- `$XDG_DATA_HOME` or `~/.local/share` on Linux
-- `~/Library/Application Support` on macOS
-- `%APPDATA%` on Windows
-
-You can create an arbitrary `{namespace}`. A good namespace for system-local
-packages is `local`. Using this namespace:
-
-- Store a package in `{data-dir}/typst/packages/local/mypkg/1.0.0`
-- Import from it with `#import "@local/mypkg:1.0.0": *`.
-
-Packages in the data directory have precedence over ones in the cache directory.
-
-Note that future iterations of Typst's package management may change/break this
-local setup.

@@ -1,0 +1,12 @@
+[package]
+name = "htl-protocol"
+version = "1.1.1"
+entrypoint = "src/main.typ"
+authors = ["Elias Pöschl <@DeltaAT>"]
+licence = "MIT"
+description = "A template for school protocols, designed for HTL Salzburg, but adaptable to other schools as well."
+repository = "https://github.com/DeltaAT/htl-protocol"
+keywords = ["typst", "template", "protocol", "school", "htl", "salzburg"]
+categories = ["components"]
+compiler = "0.14.2"
+exclude = ["examples"]
