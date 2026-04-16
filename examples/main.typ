@@ -1,4 +1,4 @@
-#import "@local/htl-protocol:1.1.1": template
+#import "@local/HTLium:1.1.1": template
 
 #show: body => template(body)
 

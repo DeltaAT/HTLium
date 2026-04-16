@@ -2,6 +2,8 @@
 
 A Template for Protocolls for higher Technical Colleges for Informatin Technology.
 
+> *Note: This template is in german*
+
 ## Typst
 
 In ``examples/main.typ`` is a example file on how to use my template.
