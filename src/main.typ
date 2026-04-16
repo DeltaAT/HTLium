@@ -3,7 +3,7 @@
 * @description: Template für Protokolle
 */
 
-#import "@preview/icu-datetime:0.2.1": fmt
+#import "@preview/icu-datetime:0.2.2"
 
 #let titlepage(
     title,
@@ -19,7 +19,7 @@
     school,
     department,
     teachers,
-    fancy_design,
+    fancy-design,
 ) = {
     v(2cm)
 
@@ -128,7 +128,7 @@
       ),
     )
 
-    if fancy_design {
+    if fancy-design {
       rect_temp(placement: top + left, dx: -6cm, dy: -2cm, rotation: -40deg, fill: light, width: 20cm)
       rect_temp(placement: top + right, dx: 6cm, dy: -2cm, rotation: 40deg, width: 20cm)
       rect_temp(placement: top, dx: -5cm, rotation: 0deg, width: 25cm)
@@ -176,11 +176,11 @@
   school: "School",
   department: "Department",
   teachers: ("Frau Mag. Mustermann", "Herr Mag. Muster"),
-  do_lof: true,
-  do_lot: true,
-  do_bib: true,
+  do-lof: true,
+  do-lot: true,
+  do-bib: true,
   bib-src: "refs.bib",
-  fancy_design: true
+  fancy-design: true
 ) = {
   let htlorange = rgb(255, 108, 76)
   
@@ -201,7 +201,7 @@
         rows: (7fr, 1fr),
         [
           #author
-          #if fancy_design {
+          #if fancy-design {
              place(
               left + top,
               dx: -1.7cm,
@@ -269,13 +269,13 @@
     school,
     department,
     teachers,
-    fancy_design
+    fancy-design
   )
   
   outline()
   pagebreak()
   
-  if do_lof {
+  if do-lof {
     show outline.entry: it => {
       it.indented(none, it.prefix() + ": " + it.inner())
     }
@@ -284,7 +284,7 @@
       target: figure.where(kind: image),
     )
   }
-  if do_lot {
+  if do-lot {
     show outline.entry: it => {
       it.indented(none, it.prefix() + ": " + it.inner())
     }
@@ -293,13 +293,13 @@
       target: figure.where(kind: table),
     )
   }
-  if do_lot or do_lof {
+  if do-lot or do-lof {
     pagebreak()
   }
   
   body
   
-  if do_bib {
+  if do-bib {
     bibliography(bib-src, style: "ieee",
     title: [Literaturverzeichnis])
   }
