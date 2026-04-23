@@ -32,7 +32,7 @@ The following parameter can be set:
 
 1. `author` string: full fame
 2. `class-long` string: center header
-3. `logo-url` string (path): path to logo
+3. `logo` image: typst image()
 4. `school-year` string: e.g.: 2025/26
 5. `title` string: protocol title
 6. `subtitle` string: subtitle
@@ -44,10 +44,10 @@ The following parameter can be set:
 12. `school` string: your school name
 13. `department` string: your school debartment
 14. `teachers` list(string): list of teachers
-15. `do_lof` bool: if you want a list of figures
-16. `do_lot` bool: if you want a list of tables
-17. `do_bib` bool: if you want a bibliography
+15. `do-lof` bool: if you want a list of figures
+16. `do-lot` bool: if you want a list of tables
+17. `do-bib` bool: if you want a bibliography
 18. `bib-src` string(path): path to bibliography file
-19. `fancy_design` bool: if you want fancy color design
+19. `fancy-design` bool: if you want fancy color design
 
 There are standard values for everything, but please change so it fits your document.

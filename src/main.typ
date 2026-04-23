@@ -14,7 +14,7 @@
     class,
     school-year,
     date,
-    logo-url,
+    logo,
     subject,
     school,
     department,
@@ -65,8 +65,8 @@
     )
 
     align(center)[
-      #if logo-url != none {
-        image(logo-url, width: 8cm)
+      #if logo != none {
+        logo
       }
     ]
 
@@ -164,7 +164,7 @@
   body,
   author: "Your Name",
   class-long: "Protokoll",
-  logo-url: "logo.png",
+  logo: image("logo.png"),
   school-year: "2025/26",
   title: "Title",
   subtitle: "Subtitle",
@@ -218,8 +218,9 @@
           #class-long
         ],
         align(right)[
-          #if logo-url != none [
-            #image(logo-url, width: 3cm)
+          #if logo != none [
+            #show image: set image(width: 3cm)
+            #logo
           ]
         ],
         
@@ -264,7 +265,7 @@
     class,
     school-year,
     date,
-    logo-url,
+    logo,
     subject,
     school,
     department,

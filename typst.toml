@@ -6,12 +6,12 @@ authors = ["Elias Pöschl <@DeltaAT>"]
 license = "MIT"
 description = "A template for school protocols, designed for HTL Salzburg, but adaptable to other schools as well."
 repository = "https://github.com/DeltaAT/htl-protocol"
-compiler = "0.14.2"
+compiler = "0.14.0"
 exclude = ["examples"]
 categories = ["layout", "paper"]
 disciplines = ["computer-science", "education"]
 
 [template]
-path = "src"
+path = "examples"
 entrypoint = "main.typ"
 thumbnail = "thumbnail.png"
