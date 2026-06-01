@@ -1,12 +1,9 @@
 # HTLium
 
-A template for protocolls for higher Technical Colleges for Information Technology.
-
-> *Note: This template is in german*
+A template for protocolls for Higher Technical Colleges for Information Technology.
+> This is made mainly for me and the HTL Salzburg
 
 ## Typst
-
-In ``examples/main.typ`` is a example file on how to use my template.
 
 Here the documentation for typst in general: <https://typst.app/docs/>
 
