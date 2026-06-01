@@ -1,5 +1,4 @@
-//#import "@preview/htlium:1.6.0": template
-#import "../src/main.typ": *
+#import "@preview/htlium:1.6.0": template
 #show: body => template(body)
 
 = Normaler Text
