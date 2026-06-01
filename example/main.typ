@@ -1,6 +1,19 @@
-//#import "@preview/htlium:1.1.1": template
+//#import "@preview/htlium:1.6.0": template
 #import "../src/main.typ": *
-#show: body => template(body)
+#show: body => template(
+  body,
+  author: "Elias Pöschl",
+  logo: image("./logo.png"),
+  title: "Sortieralgorithmen",
+  subtitle: "Ein Vergleich gängiger Verfahren",
+  task-title: "Aufgabenstellung",
+  task-content: "Implementiere und vergleiche verschiedene Sortieralgorithmen und dokumentiere deren Laufzeitverhalten.",
+  class: "3AHIF",
+  subject: "Softwareentwicklung",
+  school: "HTL Salzburg",
+  department: "Informatik",
+  teachers: ("Frau Mag. Mustermann", "Herr Mag. Muster"),
+)
 
 = Normaler Text
 #lorem(400)

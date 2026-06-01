@@ -118,6 +118,35 @@
     lang: lang,
   )
 
+  show table: t => {
+    if (t.has("label") and t.label == <nostyle>) {
+      return t
+    }
+    let fields = t.fields()
+    if ("label" in fields.keys()) {
+      let _ = fields.remove("label")
+    }
+    let chld = fields.remove("children")
+
+    block(
+      radius: 4pt,
+      clip: true,
+      stroke: 1pt,
+    )[
+      #table(
+        ..fields,
+        fill: (x, y) => {
+          if (calc.odd(y)) {
+            color-scheme.darken(60%).transparentize(90%)
+          } else {
+            rgb(0, 0, 0, 0)
+          }
+        },
+        ..chld
+      )<nostyle>
+    ]
+  }
+
   set cite(
     style: "ieee"
   )
@@ -142,7 +171,10 @@
     before-logo-info,
     after-logo-info
   )
-  
+
+  show outline.entry.where(
+    level: 1
+  ): set text(weight: "bold") 
   outline()
   pagebreak()
   
@@ -150,6 +182,9 @@
     show outline.entry: it => {
       it.indented(none, it.prefix() + ": " + it.inner())
     }
+    show outline.entry.where(
+      level: 1,
+    ): set text(weight: "regular")
     outline(
       title: [
         #if lang == "de" [
@@ -165,6 +200,9 @@
     show outline.entry: it => {
       it.indented(none, it.prefix() + ": " + it.inner())
     }
+    show outline.entry.where(
+      level: 1,
+    ): set text(weight: "regular")
     outline(
       title: [
         #if lang == "de" [
