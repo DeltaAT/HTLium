@@ -1,6 +1,6 @@
 // Helper used to render a single cover page for the README color-scheme table.
 // Compile with: typst compile --root .. --input color=blue swatch.typ ...
-#import "../src/main.typ": *
+#import "../src/template.typ": *
 
 #let palette = (
   red: red,
